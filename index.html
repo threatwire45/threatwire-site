@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threat Wire | Cyber threat intelligence that applies to you</title>
+<meta name="description" content="Threat Wire tells your team which cyber attacks affect your technology, and exactly what to do first.">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+/* ADS: three spaces are reserved below (class "ad"). They stay hidden until you add class="show-ads" to <body>.
+   To use one, put the ad network's code inside the matching <aside class="ad"> element. */
+:root{--navy:#1e3b8b;--blue:#3b82f6;--red:#dc2626;--ink:#0f172a;--mute:#475569;--paper:#f4f6fb;--line:#d8deea;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white)}
+a{color:var(--navy)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;margin-bottom:12px}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0 0 14px;max-width:62ch}
+.btn{display:inline-block;padding:13px 22px;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid var(--white)}
+.btn.primary{background:var(--white);color:var(--navy)}
+.btn.ghost{color:var(--white)}
+.btn.solid{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+/* header + hero */
+.top{background:var(--navy);color:var(--white)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+nav img{width:64px;height:64px;display:block}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{color:var(--white);text-decoration:none;font-weight:600}
+nav a.btn{padding:8px 16px;font-size:.95rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:40px 0 72px}
+.hero p{color:#dbe5ff;font-size:1.15rem;margin-top:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* the example alert: the product in miniature */
+.alert{background:var(--white);color:var(--ink);border-radius:8px;border-left:8px solid var(--red);padding:22px;box-shadow:0 18px 40px rgba(6,16,50,.35)}
+.alert small{color:var(--mute);display:block;margin-bottom:6px}
+.alert h3{margin-bottom:14px}
+.risk{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px;font-size:.72rem;font-weight:700}
+.risk span{border:2px solid;border-radius:4px;padding:6px 2px;text-align:center}
+.risk .c{border-color:#dc2626}.risk .h{border-color:#f59e0b;background:#fff4de}.risk .m{border-color:#f5d548}.risk .l{border-color:#10b981}
+.alert dl{margin:0;font-size:.95rem}
+.alert dt{font-weight:700;margin-top:10px}
+.alert dd{margin:2px 0 0;color:#26324a}
+
+section{padding:72px 0}
+section.tint{background:var(--paper)}
+.lede{color:var(--mute);font-size:1.1rem}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:36px}
+.three>div{border-top:4px solid var(--blue);padding-top:16px}
+.three>div:nth-child(2){border-color:var(--red)}
+.three>div:nth-child(3){border-color:var(--navy)}
+.three p{color:var(--mute);margin-top:8px}
+
+/* sample reports */
+.reports{margin-top:32px;border-top:1px solid var(--line)}
+.report{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.report p{margin:4px 0 0;color:var(--mute)}
+.meta{font-size:.9rem;color:var(--mute)}
+.tag{display:inline-block;font-weight:700;font-size:.8rem;padding:2px 9px;border-radius:99px;background:#fde8e8;color:#9b1c1c;margin-left:8px}
+.report .btn{border-color:var(--navy);color:var(--navy);padding:10px 18px;white-space:nowrap}
+
+/* steps */
+.steps{list-style:none;counter-reset:s;margin:32px 0 0;padding:0;display:grid;gap:22px;max-width:760px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--white);font-weight:800;display:grid;place-items:center}
+.steps p{margin:4px 0 0;color:var(--mute)}
+
+/* scope */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px}
+.two ul{margin:12px 0 0;padding-left:20px}
+.two li{margin-bottom:8px}
+.two h3{padding-bottom:8px;border-bottom:3px solid var(--blue)}
+.two div+div h3{border-color:var(--line)}
+
+/* contact + footer */
+.contact{background:var(--navy);color:var(--white);text-align:center}
+.contact p{margin:12px auto 24px;color:#dbe5ff}
+footer{background:#14275f;color:#c4d0f2;font-size:.92rem;padding:28px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer a{color:#fff}
+
+/* reserved ad spaces: hidden until body has class show-ads */
+.ad{display:none}
+.show-ads .ad{display:flex;align-items:center;justify-content:center;min-height:100px;margin:0 auto;max-width:970px;
+  border:2px dashed var(--line);color:var(--mute);font-size:.85rem;background:var(--white)}
+.ad-wrap{padding:24px 0}
+.show-ads .ad-wrap{padding:28px 0}
+
+@media (max-width:820px){
+  .hero,.three,.two{grid-template-columns:1fr}
+  .hero{gap:36px;padding-bottom:56px}
+  nav ul li:not(:last-child){display:none}
+  .report{grid-template-columns:1fr}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#top" aria-label="Threat Wire home"><img src="logo-navy.png" alt="Threat Wire"></a>
+      <ul>
+        <li><a href="#work">Our work</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#scope">What we cover</a></li>
+        <li><a class="btn primary" href="#contact">Get a free report</a></li>
+      </ul>
+    </nav>
+    <div class="hero" id="top">
+      <div>
+        <h1>Know which attacks put you at risk, and what to do first.</h1>
+        <p>New attacks are reported every day, and most of them don’t concern you. Threat Wire works out which ones do, then sends your team a clear report with the steps to take today, this week and this month.</p>
+        <div class="cta">
+          <a class="btn primary" href="samples/CTI-2026-003.pdf">Read a sample report</a>
+          <a class="btn ghost" href="#contact">Get a free report for your stack</a>
+        </div>
+      </div>
+      <article class="alert" aria-label="Example alert">
+        <small>Example from report CTI-2026-003</small>
+        <h3>Critical Rails flaw lets attackers read and write server files</h3>
+        <div class="risk" aria-label="Risk level: High"><span class="c">☐ CRITICAL</span><span class="h">☑ HIGH</span><span class="m">☐ MEDIUM</span><span class="l">☐ LOW</span></div>
+        <dl>
+          <dt>Does it affect you?</dt>
+          <dd>Yes, if your Rails app uses Active Storage with ImageMagick. Two quick checks tell you.</dd>
+          <dt>Do today</dt>
+          <dd>Upgrade to Rails 8.1.4.1 or 8.0.5.2, or block the dangerous ImageMagick features until you can.</dd>
+        </dl>
+      </article>
+    </div>
+  </div>
+</header>
+
+<!-- AD SPACE 1 (top banner) -->
+<div class="ad-wrap"><div class="wrap"><aside class="ad" data-slot="top-banner" aria-label="Advertisement">Advertisement space</aside></div></div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>Intelligence written for your team, not for the whole internet</h2>
+    <p class="lede">A feed of alerts leaves the sorting to you. We do the sorting, and we show our reasoning.</p>
+    <div class="three">
+      <div>
+        <h3>Relevant to you</h3>
+        <p>We start by learning your sector and the technology you rely on. After that, you hear about the attacks that touch your systems and skip the rest.</p>
+      </div>
+      <div>
+        <h3>Clear next steps</h3>
+        <p>Every report ends with actions in priority order: what to do today, what can wait for the week, and what to plan for the month.</p>
+      </div>
+      <div>
+        <h3>Checked before it reaches you</h3>
+        <p>We check details against primary sources, say how confident we are, and keep what was observed separate from what is only possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="work">
+  <div class="wrap">
+    <h2>Our work</h2>
+    <p class="lede">These are real reports, free to read and share. Each one answers the same questions: who is affected, how to check, and what to do.</p>
+    <div class="reports">
+      <div class="report">
+        <div>
+          <div class="meta">CTI-2026-003 · 7 November 2026 · Vulnerability<span class="tag">High</span></div>
+          <h3>Critical Rails Active Storage flaw (CVE-2026-122006)</h3>
+          <p>Who is affected, how to check in minutes, and the upgrade path, including the end of support for Rails 8.0.</p>
+        </div>
+        <a class="btn" href="samples/CTI-2026-003.pdf">Read the report (PDF)</a>
+      </div>
+      <div class="report">
+        <div>
+          <div class="meta">CTI-2026-002 · 7 November 2026 · Incident<span class="tag">High</span></div>
+          <h3>Binance’s $6.34 billion theft: a fake interview and a poisoned coding task</h3>
+          <p>How one developer’s laptop became the way into a wallet system, and the controls that would have stopped it.</p>
+        </div>
+        <a class="btn" href="samples/CTI-2026-002.pdf">Read the report (PDF)</a>
+      </div>
+      <div class="report">
+        <div>
+          <div class="meta">CTI-2026-001 · 5 March 2026 · Malware<span class="tag">High</span></div>
+          <h3>StegaBin: typosquatted npm packages that steal developer credentials</h3>
+          <p>The 26 malicious packages to search your lockfiles for, plus the indicators to hunt for in your logs.</p>
+        </div>
+        <a class="btn" href="samples/CTI-2026-001.pdf">Read the report (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD SPACE 2 (mid-page) -->
+<div class="ad-wrap"><div class="wrap"><aside class="ad" data-slot="mid-page" aria-label="Advertisement">Advertisement space</aside></div></div>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><div><h3>You tell us what you run</h3><p>Your sector, your main systems and software, and the vendors you depend on. It takes about thirty minutes.</p></div></li>
+      <li><div><h3>We watch and assess</h3><p>We follow new attacks and vulnerabilities as they appear and judge each one against your list.</p></div></li>
+      <li><div><h3>You get what applies</h3><p>An urgent alert when something critical touches your systems, a short weekly summary, and a full report for major incidents. You can also ask us “are we affected by this?” at any time.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="tint" id="scope">
+  <div class="wrap">
+    <h2>What we cover</h2>
+    <p class="lede">Built for small and mid-size teams without a dedicated threat analyst, such as software companies, crypto and fintech firms, healthcare providers and financial services.</p>
+    <div class="two">
+      <div>
+        <h3>What we do</h3>
+        <ul>
+          <li>Track attacks and vulnerabilities reported publicly around the world</li>
+          <li>Assess whether each one affects your technology</li>
+          <li>Explain the risk in plain language with prioritized actions</li>
+          <li>Supply indicators ready to load into your security tools</li>
+          <li>Answer your questions about specific threats</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What we don’t do</h3>
+        <ul>
+          <li>Monitor your network or devices</li>
+          <li>Replace incident response or round-the-clock security monitoring</li>
+          <li>Guarantee that an attack will be prevented</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Get a free report for your technology</h2>
+    <p>Tell us your industry and the main technology you use. We’ll send you a report on a recent threat that applies to you.</p>
+    <a class="btn primary" href="mailto:info@threatwire-intelligence.com?subject=Free%20report%20request&amp;body=Industry%3A%0ATechnology%20we%20use%3A%0ARegion%3A">info@threatwire-intelligence.com</a>
+  </div>
+</section>
+
+<!-- AD SPACE 3 (before footer) -->
+<div class="ad-wrap"><div class="wrap"><aside class="ad" data-slot="footer-banner" aria-label="Advertisement">Advertisement space</aside></div></div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Threat Wire. Sample reports are marked TLP:CLEAR and may be shared freely.</span>
+    <a href="mailto:info@threatwire-intelligence.com">info@threatwire-intelligence.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
